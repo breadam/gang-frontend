@@ -1,0 +1,20 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\devel\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\devel\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'start' ]
+2 info using npm@1.4.23
+3 info using node@v0.10.31
+4 verbose node symlink C:\devel\nodejs\\node.exe
+5 error Error: ENOENT, open 'C:\devel\projects\gang\polymer\app\package.json'
+6 error If you need help, you may report this *entire* log,
+6 error including the npm and node versions, at:
+6 error     <http://github.com/npm/npm/issues>
+7 error System Windows_NT 6.1.7600
+8 error command "C:\\devel\\nodejs\\\\node.exe" "C:\\devel\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
+9 error cwd C:\devel\projects\gang\polymer\app
+10 error node -v v0.10.31
+11 error npm -v 1.4.23
+12 error path C:\devel\projects\gang\polymer\app\package.json
+13 error code ENOENT
+14 error errno 34
+15 verbose exit [ 34, true ]

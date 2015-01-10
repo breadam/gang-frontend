@@ -16,6 +16,9 @@
 		
 		</div>
   </template>
+	
+	<script src='../../bower_components/socket.io-client/socket.io.js'></script>
+	
   <script>
     (function () {
 
@@ -23,9 +26,21 @@
         
 				messages:[],
 				
+				ready:function(){
+						
+					var self = this;
+					
+					var socket = this.socket = io.connect('http://localhost:8000');
+					
+					socket.on('message', function (data) {
+					
+						self.messages.push(data);
+					});
+				},
+			
 				appendMessage:function(e, detail, sender) {
 					this.messages.push(detail);
-					console.log(this.messages);
+					this.socket.emit('new-message',detail);
 				}
 				
       });
