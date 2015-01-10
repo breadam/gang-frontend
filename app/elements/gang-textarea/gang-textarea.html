@@ -1,0 +1,46 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-signals/core-signals.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html">
+
+<polymer-element name="gang-textarea">
+  <template>
+    <link rel="stylesheet" href="gang-textarea.css">
+		
+		<paper-input-decorator floatingLabel label="Your Message">
+		
+			<paper-autogrow-textarea id='wrapper' on-keypress="{{newMessage}}">
+				
+				<textarea id='textarea' value='{{message}}'></textarea>
+				
+			</paper-autogrow-textarea>
+		</paper-input-decorator>
+  </template>
+  <script>
+    (function () {
+
+      Polymer({
+				
+				message:'',
+				
+        newMessage:function(e){
+				
+					code = e.keyCode;
+					
+					switch(code) {
+						case 13:
+							
+							this.fire('core-signal', {name: "new-message", data: {message:this.message}});
+							this.message = '';
+							this.$.textarea.value = '';
+							this.$.wrapper.update();
+							
+							break;
+					}
+					
+				}
+      });
+
+    })();
+  </script>
+</polymer-element>

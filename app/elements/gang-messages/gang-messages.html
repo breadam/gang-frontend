@@ -1,0 +1,35 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-list/core-list.html">
+<link rel="import" href="../../bower_components/core-signals/core-signals.html">
+
+<polymer-element name="gang-messages" attributes="">
+  <template>
+    <link rel="stylesheet" href="gang-messages.css">
+		
+		<core-signals on-core-signal-new-message='{{appendMessage}}'></core-signals>
+		
+		<div layout vertical>
+
+			<template repeat="{{message in messages}}">
+				<h1> {{message.message}}</h1>
+			</template>
+		
+		</div>
+  </template>
+  <script>
+    (function () {
+
+      Polymer({
+        
+				messages:[],
+				
+				appendMessage:function(e, detail, sender) {
+					this.messages.push(detail);
+					console.log(this.messages);
+				}
+				
+      });
+
+    })();
+  </script>
+</polymer-element>

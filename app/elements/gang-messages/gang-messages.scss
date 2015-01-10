@@ -1,0 +1,10 @@
+:host {
+  display: block;
+	overflow:auto;
+	
+	& > core-list {
+		
+		background-color:#eeeeee;
+	}
+	
+}

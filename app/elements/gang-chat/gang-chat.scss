@@ -1,0 +1,9 @@
+:host {
+
+  display: block;
+	
+	& > paper-input {
+		
+		width:100%;
+	}
+}
