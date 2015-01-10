@@ -30,7 +30,7 @@
 					switch(code) {
 						case 13:
 							
-							this.fire('core-signal', {name: "new-message", data: {message:this.message}});
+							this.fire('core-signal', {name: "new-message", data: {text:this.message}});
 							this.message = '';
 							this.$.textarea.value = '';
 							this.$.wrapper.update();
