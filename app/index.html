@@ -66,16 +66,23 @@
 
         <core-header-panel main>
 
+
             <core-toolbar id="mainheader">
                 <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
                 <span flex>Name of Your Gang</span>
             </core-toolbar>
 
-            <div class="content">
-                <gang-messages flex></gang-messages>
-            </div>
+            <div flex layout vertical >
 
-            <gang-textarea flex></gang-textarea>
+                <div class="content">
+                    <gang-messages flex></gang-messages>
+                </div>
+
+                <div>
+                    <gang-textarea flex></gang-textarea>
+                </div>
+
+            </div>
 
         </core-header-panel>
 

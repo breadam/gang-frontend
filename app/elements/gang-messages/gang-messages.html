@@ -2,19 +2,16 @@
 <link rel="import" href="../../bower_components/core-list/core-list.html">
 <link rel="import" href="../../bower_components/core-signals/core-signals.html">
 
-<polymer-element name="gang-messages" attributes="">
+<polymer-element name="gang-messages" attributes="" >
     <template>
         <link rel="stylesheet" href="gang-messages.css">
 
         <core-signals on-core-signal-new-message='{{appendMessage}}'></core-signals>
 
-        <div layout vertical>
-
             <template repeat="{{message in messages}}">
                 <p class="msg-bubble"> {{message.text}}</p>
             </template>
 
-        </div>
     </template>
 
     <script src='../../bower_components/socket.io-client/socket.io.js'></script>
@@ -44,6 +41,7 @@
             }
 
         });
+
 
     })();
     </script>
