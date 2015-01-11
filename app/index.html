@@ -40,7 +40,7 @@
         padding: 20px;
     }
     /* drawer is always visible on a wide screen
-   so menu button isn't required */
+   so menu button isn't required. Make screen resolution smaller to see the magic button */
     
     core-drawer-panel:not([narrow]) #navicon {
         display: none;
@@ -49,7 +49,7 @@
 
 </head>
 
-<body unresolved>
+<body fullbleed vertical layout unresolved>
 
 
     <core-drawer-panel id="drawerPanel">
@@ -66,7 +66,6 @@
 
         <core-header-panel main>
 
-
             <core-toolbar id="mainheader">
                 <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
                 <span flex>Name of Your Gang</span>
@@ -74,12 +73,11 @@
 
             <div class="content">
                 <gang-messages flex></gang-messages>
-
             </div>
-            <gang-textarea flex></gang-messages>
+
+            <gang-textarea flex></gang-textarea>
 
         </core-header-panel>
-
 
     </core-drawer-panel>
 

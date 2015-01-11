@@ -3,48 +3,48 @@
 <link rel="import" href="../../bower_components/core-signals/core-signals.html">
 
 <polymer-element name="gang-messages" attributes="">
-  <template>
-    <link rel="stylesheet" href="gang-messages.css">
-		
-		<core-signals on-core-signal-new-message='{{appendMessage}}'></core-signals>
-		
-		<div layout vertical>
+    <template>
+        <link rel="stylesheet" href="gang-messages.css">
 
-			<template repeat="{{message in messages}}">
-				<h1> {{message.text}}</h1>
-			</template>
-		
-		</div>
-  </template>
-	
-	<script src='../../bower_components/socket.io-client/socket.io.js'></script>
-	
-  <script>
-    (function () {
+        <core-signals on-core-signal-new-message='{{appendMessage}}'></core-signals>
 
-      Polymer({
-        
-				messages:[],
-				
-				ready:function(){
-						
-					var self = this;
-					
-					var socket = this.socket = io.connect('http://gang-backend-demo.herokuapp.com:80');
-					
-					socket.on('message', function (data) {
-					
-						self.messages.push(data);
-					});
-				},
-			
-				appendMessage:function(e, detail, sender) {
-					this.messages.push(detail);
-					this.socket.emit('new-message',detail);
-				}
-				
-      });
+        <div layout vertical>
+
+            <template repeat="{{message in messages}}">
+                <p class="msg-bubble"> {{message.text}}</p>
+            </template>
+
+        </div>
+    </template>
+
+    <script src='../../bower_components/socket.io-client/socket.io.js'></script>
+
+    <script>
+    (function() {
+
+        Polymer({
+
+            messages: [],
+
+            ready: function() {
+
+                var self = this;
+
+                var socket = this.socket = io.connect('http://gang-backend-demo.herokuapp.com:80');
+
+                socket.on('message', function(data) {
+
+                    self.messages.push(data);
+                });
+            },
+
+            appendMessage: function(e, detail, sender) {
+                this.messages.push(detail);
+                this.socket.emit('new-message', detail);
+            }
+
+        });
 
     })();
-  </script>
+    </script>
 </polymer-element>
