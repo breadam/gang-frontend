@@ -1,7 +1,6 @@
 {
   "name": "gang-frontend",
   "version": "0.0.0",
-  "dependencies": {},
   "dependencies": {
     "connect-livereload": "^0.4.0",
     "grunt": "^0.4.1",
