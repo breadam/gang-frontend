@@ -21,61 +21,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- build:vulcanized elements/elements.vulcanized.html -->
     <link rel="import" href="elements/elements.html">
 
+
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-item/core-item.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+
+
     <style>
-    html,
-    body {
-        height: 100%;
-    }
     body {
         font-family: sans-serif;
-        margin: 0;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    }
-    [drawer] {
-        background-color: #B99588;
-        border-right: 1px solid #ccc;
-    }
-    [main] {
-        /*        background-color: #4F7DC9;
-*/
-    }
-    button {
-        width: 160px;
-        height: 40px;
-        font-size: 16px;
-        margin: 8px;
     }
     core-header-panel {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        background: white;
     }
-    core-header-panel[mode=cover]::shadow #mainContainer {
-        left: 70px;
+    core-toolbar {
+        background-color: #03A9F4;
     }
-    .core-header {
-        height: 60px;
-        line-height: 60px;
-        font-size: 18px;
-        padding: 0 10px;
-        background-color: #4F7DC9;
-        color: #FFF;
-        transition: height 0.2s;
-    }
-    .core-header.tall {
-        height: 180px;
-    }
-    .core-header.medium-tall {
-        height: 120px;
+    #navheader {
+        background-color: #56BA89;
     }
     .content {
-        background: linear-gradient(rgb(214, 227, 231), lightblue);
+        padding: 20px;
+    }
+    /* drawer is always visible on a wide screen
+   so menu button isn't required */
+    
+    core-drawer-panel:not([narrow]) #navicon {
+        display: none;
     }
     </style>
 
@@ -83,27 +59,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <body unresolved>
 
-    <core-drawer-panel>
 
-        <div drawer>this is where keep the list of online gariz</div>
+    <core-drawer-panel id="drawerPanel">
 
-        <div main>
+        <core-header-panel drawer>
+            <core-toolbar id="navheader">
+                <span>Gangs</span>
+            </core-toolbar>
+            <core-menu>
+                <core-item label="Gariz"></core-item>
+                <core-item label="Badboyz"></core-item>
+            </core-menu>
+        </core-header-panel>
 
-            <!-- This toogle drawer button should worke but it is not visible. The doc says: 
-	An element that should toggle the drawer will automatically do so if it's given the core-drawer-toggle attribute. Also this element will automatically be hidden in wide layout. -->
-            <button core-drawer-toggle>toggle drawer</button>
+        <core-header-panel main>
 
-            <core-header-panel mode="waterfall-tall">
-                <div class="core-header">Your Gang's pretty name & cover picture</div>
-                <div class="content"> </div>
+
+            <core-toolbar id="mainheader">
+                <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+                <span flex>Name of Your Gang</span>
+            </core-toolbar>
+
+            <div class="content">
                 <gang-messages flex></gang-messages>
 
-            </core-header-panel>
-            <gang-textarea></gang-textarea>
+            </div>
+            <gang-textarea flex></gang-messages>
 
-        </div>
+        </core-header-panel>
+
 
     </core-drawer-panel>
+
+    <script>
+    document.addEventListener('polymer-ready', function() {
+        var navicon = document.getElementById('navicon');
+        var drawerPanel = document.getElementById('drawerPanel');
+        navicon.addEventListener('click', function() {
+            drawerPanel.togglePanel();
+        });
+    });
+    </script>
 
 </body>
 
