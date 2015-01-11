@@ -1,4 +1,20 @@
 'use strict';
+
+var Environment = process.env.NODE_ENV || 'development';
+var config = {
+};
+
+if(Environment =='development'){
+		
+	config.port = 9000;
+	
+}
+
+if(Environment == 'production'){
+		
+	config.port = process.env.PORT;
+}	
+
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var mountFolder = function (connect, dir) {
@@ -114,7 +130,7 @@ module.exports = function (grunt) {
     },
     connect: {
       options: {
-        port: process.env.PORT,
+        port: config.port,
         // change this to '0.0.0.0' to access the server from outside
         hostname: 'localhost'
       },
