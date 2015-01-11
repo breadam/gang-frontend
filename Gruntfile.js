@@ -349,17 +349,6 @@ module.exports = function (grunt) {
   ]);
 	
 	grunt.registerTask('run', function (target) {
-    if (target === 'dist') {
-      return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
-    }
-
-    grunt.task.run([
-      'clean:server',
-      'sass:server',
-      'copy:styles',
-      'autoprefixer:server',
-      'open',
-      'watch'
-    ]);
+    return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
   });
 };
