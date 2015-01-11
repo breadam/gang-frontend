@@ -348,7 +348,5 @@ module.exports = function (grunt) {
     'build'
   ]);
 	
-	grunt.registerTask('run', function (target) {
-    return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
-  });
+	grunt.registerTask('run'['build', 'open', 'connect:dist:keepalive']);
 };
