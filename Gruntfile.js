@@ -348,5 +348,18 @@ module.exports = function (grunt) {
     'build'
   ]);
 	
-	grunt.registerTask('heroku', ['serve']);
+	grunt.registerTask('run', function (target) {
+    if (target === 'dist') {
+      return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+    }
+
+    grunt.task.run([
+      'clean:server',
+      'sass:server',
+      'copy:styles',
+      'autoprefixer:server',
+      'open',
+      'watch'
+    ]);
+  });
 };

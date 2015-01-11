@@ -30,6 +30,6 @@
     "node": ">=0.10.0"
   },
 	"scripts":{
-		"start": "./node_modules/grunt-cli/bin/grunt serve"
+		"start": "./node_modules/grunt-cli/bin/grunt run"
 	}
 }
