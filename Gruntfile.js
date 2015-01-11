@@ -342,11 +342,13 @@ module.exports = function (grunt) {
     'minifyHtml'
   ]);
 
+	grunt.registerTask('heroku',['build', 'open', 'connect:dist:keepalive']);
+	
   grunt.registerTask('default', [
     'jshint',
     // 'test'
     'build'
   ]);
 	
-	grunt.registerTask('run',['build', 'open', 'connect:dist:keepalive']);
+	
 };
