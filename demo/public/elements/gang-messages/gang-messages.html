@@ -1,0 +1,67 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-list/core-list.html">
+<link rel="import" href="../../bower_components/core-signals/core-signals.html">
+
+<polymer-element name="gang-messages" attributes="" >
+    <template>
+        <link rel="stylesheet" href="gang-messages.css">
+
+        <core-signals on-core-signal-new-message='{{appendMessage}}'></core-signals>
+
+            <template repeat="{{message in messages}}">
+                <p class="msg-bubble"> {{message.text}}</p>
+            </template>
+
+    </template>
+
+    <script src='../../bower_components/socket.io-client/socket.io.js'></script>
+
+    <script>
+    (function() {
+
+        Polymer({
+
+            messages: [],
+
+            ready: function() {
+
+                var self = this;
+                //var socket = this.socket = io.connect('http://gang-backend-demo.herokuapp.com:80');
+
+								var ws = this.ws = new WebSocket('ws://zeus.fikrimuhal.com:9000/ws');
+								
+								ws.onmessage = function(e) {
+									
+									self.messages.push({
+										text:JSON.parse(e.data).msg
+									});
+								};
+								
+                /*socket.on('message', function(data) {
+
+                    self.messages.push(data);
+                });*/
+            },
+						
+            appendMessage: function(e, detail, sender) {
+                this.messages.push(detail);
+                /*this.socket.emit('new-message', {
+									type:'message',
+									self:false,
+									uid:"0a2b16e6-dfdb-4c54-a431-99ac298e3030",
+									msg:detail
+								});*/
+								
+								this.ws.send({
+									type:'message',
+									self:false,
+									msg:detail
+								});
+            }
+
+        });
+
+
+    })();
+    </script>
+</polymer-element>

@@ -1,0 +1,6 @@
+:host {
+  display: block; }
+  :host > paper-input {
+    width: 100%; }
+
+/*# sourceMappingURL=gang-chat.css.map */

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "file": "",
+  "sources": ["app/elements/gang-chat/gang-chat.scss"],
+  "names": [],
+  "mappings": "AAAA;EAEE,SAAS;EAAX,QAAQ;IAIN,OAAM"
+}
