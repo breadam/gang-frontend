@@ -4,43 +4,46 @@
 <link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html">
 
 <polymer-element name="gang-textarea">
-  <template>
-    <link rel="stylesheet" href="gang-textarea.css">
-		
-		<paper-input-decorator floatingLabel label="Your Message">
-		
-			<paper-autogrow-textarea id='wrapper' on-keypress="{{newMessage}}">
-				
-				<textarea id='textarea' value='{{message}}'></textarea>
-				
-			</paper-autogrow-textarea>
-		</paper-input-decorator>
-  </template>
-  <script>
-    (function () {
+    <template>
+        <link rel="stylesheet" href="gang-textarea.css">
 
-      Polymer({
-				
-				message:'',
-				
-        newMessage:function(e){
-				
-					code = e.keyCode;
-					
-					switch(code) {
-						case 13:
-							
-							this.fire('core-signal', {name: "new-message", data: {text:this.message}});
-							this.message = '';
-							this.$.textarea.value = '';
-							this.$.wrapper.update();
-							
-							break;
-					}
-					
-				}
-      });
+        <paper-input-decorator floatingLabel label="Your fucking Message">
+
+            <paper-autogrow-textarea id='wrapper' on-keypress="{{newMessage}}">
+
+                <div id="textdiv">
+                    <textarea id='textarea' value='{{message}}'></textarea>
+                </div>
+
+            </paper-autogrow-textarea>
+        </paper-input-decorator>
+    </template>
+    <script>
+    (function() {
+
+        Polymer({
+
+            message: '',
+
+            newMessage: function(e) {
+
+                if (e.which == 13 && this.message != '') {
+
+                    this.fire('core-signal', {
+                        name: "new-message",
+                        data: {
+                            text: this.message
+                        }
+                    });
+                    this.message = '';
+                    this.$.textarea.value = '';
+                    this.$.wrapper.update();
+
+                }
+
+            }
+        });
 
     })();
-  </script>
+    </script>
 </polymer-element>
