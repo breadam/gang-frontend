@@ -26,18 +26,37 @@
             ready: function() {
 
                 var self = this;
+                //var socket = this.socket = io.connect('http://gang-backend-demo.herokuapp.com:80');
 
-                var socket = this.socket = io.connect('http://gang-backend-demo.herokuapp.com:80');
-
-                socket.on('message', function(data) {
+								var ws = this.ws = new WebSocket('ws://zeus.fikrimuhal.com:9000/ws');
+								
+								ws.onmessage = function(e) {
+									
+									self.messages.push({
+										text:JSON.parse(e.data).msg
+									});
+								};
+								
+                /*socket.on('message', function(data) {
 
                     self.messages.push(data);
-                });
+                });*/
             },
-
+						
             appendMessage: function(e, detail, sender) {
                 this.messages.push(detail);
-                this.socket.emit('new-message', detail);
+                /*this.socket.emit('new-message', {
+									type:'message',
+									self:false,
+									uid:"0a2b16e6-dfdb-4c54-a431-99ac298e3030",
+									msg:detail
+								});*/
+								
+								this.ws.send({
+									type:'message',
+									self:false,
+									msg:detail
+								});
             }
 
         });
