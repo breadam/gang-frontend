@@ -5,7 +5,6 @@
     "connect-livereload": "^0.4.0",
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^1.0.0",
-    "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-connect": "^0.8.0",
@@ -29,9 +28,5 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "scripts": {
-		"start": "grunt heroku",
-    "postinstall": "grunt build"
   }
 }

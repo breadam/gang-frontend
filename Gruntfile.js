@@ -1,20 +1,5 @@
 'use strict';
 
-var Environment = process.env.NODE_ENV || 'development';
-var config = {
-};
-
-if(Environment =='development'){
-		
-	config.port = 9000;
-	
-}
-
-if(Environment == 'production'){
-		
-	config.port = process.env.PORT;
-}	
-
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var mountFolder = function (connect, dir) {
@@ -130,7 +115,7 @@ module.exports = function (grunt) {
     },
     connect: {
       options: {
-        port: config.port,
+        port: 9000,
         // change this to '0.0.0.0' to access the server from outside
         hostname: 'localhost'
       },
@@ -341,12 +326,6 @@ module.exports = function (grunt) {
     'usemin',
     'minifyHtml'
   ]);
-
-	grunt.registerTask('heroku', function (target) {
-		
-     return grunt.task.run(['open', 'connect:dist:keepalive']);
-    
-	});
 	
   grunt.registerTask('default', [
     'jshint',
