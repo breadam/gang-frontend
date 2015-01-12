@@ -1,10 +1,6 @@
 :host {
   display: block;
 	overflow:auto;
-
-	& > core-list {	
-		background-color:#eeeeee;
-	}
 		
 	.msg-bubble {
 	  margin: 20px;

@@ -1,12 +1,8 @@
 :host {
   display: block;
   overflow: auto; }
-  :host > core-list {
-    background-color: #eeeeee; }
   :host .msg-bubble {
     margin: 20px;
     padding: 10px 20px;
     border-radius: 20px;
     background-color: #eee; }
-
-/*# sourceMappingURL=gang-messages.css.map */

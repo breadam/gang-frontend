@@ -1,0 +1,1 @@
+!function(a){"use strict";a.addEventListener("polymer-ready",function(){var b=a.getElementById("navicon"),c=a.getElementById("drawerPanel");b.addEventListener("click",function(){c.togglePanel()})})}(wrap(document));

@@ -1,22 +1,26 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/core-signals/core-signals.html">
-<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
-<link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html">
+<!--<link rel="import" href="../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../bower_components/paper-input/paper-autogrow-textarea.html">-->
+<link rel="import" href="../../bower_components/core-input/core-input.html">
 
 <polymer-element name="gang-textarea">
     <template>
+		
         <link rel="stylesheet" href="gang-textarea.css">
+				
+				<div class='ui inverted large fluid input'>
+					<input is='core-input' value='{{message}}' on-keypress="{{newMessage}}" placeholder='Type..'></input>
+				</div>
+        <!--<paper-input-decorator floatingLabel label="Your message">
 
-        <paper-input-decorator floatingLabel label="Your message">
+          <paper-autogrow-textarea id='wrapper' on-keypress="{{newMessage}}">
 
-            <paper-autogrow-textarea id='wrapper' on-keypress="{{newMessage}}">
-
-                <div id="textdiv">
-                    <textarea id='textarea' value='{{message}}'></textarea>
-                </div>
-
-            </paper-autogrow-textarea>
-        </paper-input-decorator>
+            <div id="textdiv">
+                <textarea id='textarea' value='{{message}}'></textarea>
+            </div>
+          </paper-autogrow-textarea>
+        </paper-input-decorator>-->
     </template>
     <script>
     (function() {
@@ -36,8 +40,8 @@
                         }
                     });
                     this.message = '';
-                    this.$.textarea.value = '';
-                    this.$.wrapper.update();
+                    //this.$.textarea.value = '';
+                    //this.$.wrapper.update();
 
                 }
 

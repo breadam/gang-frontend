@@ -8,10 +8,26 @@
 
         <core-signals on-core-signal-new-message='{{appendMessage}}'></core-signals>
 
-            <template repeat="{{message in messages}}">
-                <p class="msg-bubble"> {{message.text}}</p>
-            </template>
-
+				<div class='ui items'>
+				
+					<template repeat="{{message in messages}}">
+						<div class='ui item'>	
+							<div class='ui tiny image'>
+								<img src='/images/user.png'></img>
+							</div>
+							<div class='content'>
+								<div class='header'>
+									You
+								</div>
+								<div class='description'>
+									{{message.text}}
+								</div>
+							</div>
+							</div>
+						</div>
+					</template>
+					
+				</div>
     </template>
 
     <script src='../../bower_components/socket.io-client/socket.io.js'></script>
