@@ -3,5 +3,5 @@
   "file": "",
   "sources": ["app/elements/gang-messages/gang-messages.scss"],
   "names": [],
-  "mappings": "AAAA;EACE,SAAS;EACV,UAAS;EAAV,MAAM;IAGH,QAAQ;IACR,SAAS;IACT,eAAe;IACf,kBAAkB"
+  "mappings": "AAAA;EACE,SAAS;EACV,UAAS"
 }

@@ -1438,7 +1438,7 @@ The following ARIA attributes are set automatically:
 		
         <style>:host{display:block}</style>
 				
-				<div class="ui inverted large fluid input">
+				<div class="ui large fluid input">
 					<input is="core-input" value="{{message}}" on-keypress="{{newMessage}}" placeholder="Type..">
 				</div>
         <!--<paper-input-decorator floatingLabel label="Your message">
@@ -1652,17 +1652,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <polymer-element name="gang-messages" attributes="" assetpath="gang-messages/">
     <template>
-        <style>:host{display:block;overflow:auto}:host .msg-bubble{margin:20px;padding:10px 20px;border-radius:20px;background-color:#eee}</style>
+        <style>:host{display:block;overflow:auto}</style>
 
         <core-signals on-core-signal-new-message="{{appendMessage}}"></core-signals>
 
-				<div class="ui items">
+				<div class="ui list">
 				
 					<template repeat="{{message in messages}}">
-						<div class="ui item">	
-							<div class="ui tiny image">
-								<img src="/images/user.png">
-							</div>
+					
+						<div class="item">	
+							
+							<img class="ui avatar image" src="/images/user.png">
+							
 							<div class="content">
 								<div class="header">
 									You
