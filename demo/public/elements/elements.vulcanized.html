@@ -1438,7 +1438,12 @@ The following ARIA attributes are set automatically:
 		
         <style>:host{display:block}</style>
 				
-				<div class="ui large fluid input">
+				<div class="ui labeled huge fluid input">
+					
+					<div class="ui blue label">
+						insert icon here
+					</div>
+					
 					<input is="core-input" value="{{message}}" on-keypress="{{newMessage}}" placeholder="Type..">
 				</div>
         <!--<paper-input-decorator floatingLabel label="Your message">
